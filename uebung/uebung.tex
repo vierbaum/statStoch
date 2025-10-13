@@ -152,4 +152,59 @@
             };
         \end{axis}
     \end{tikzpicture}
+    \subsection{}
+    Wir definieren $\Omega=\{1,\hdots,n\}^3$ als Tripel mit
+    Stimme der entsprächenden Mitglieder.
+    Demnach ist $\P(\omega)=\frac{1}{n^3} (\omega\in\Omega)$
+    \begin{enumerate}[a]
+        \item
+            \begin{enumerate}[i]
+                \item
+                    \begin{equation*}
+                        A=\{(1,a,b)|1\leq a,b\leq n; a,b\in\N\},
+                        |A|=n^2
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        A=\{(1,1,a)|1\leq a\leq n; a\in\N\},
+                        |A|=n
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        A=\{(1,1,1)\},
+                        |A|=1
+                    \end{equation*}
+            \end{enumerate}
+        \item
+            \begin{align*}
+                A_1&=\{(1,1,1)\}\cup\{(1,1,a),(1,a,1),(a,1,1)
+                |2\leq a\leq n;a\in\N\}\\
+                |A_1|&=3(n-1)+1=3n-2,\P(A_1)=\frac{|A_1|}{|\Omega|}
+                =\frac{3n-2}{n^3}
+            \end{align*}
+        \item
+            Wir finden ein allgemeines $A_k$
+            \begin{align*}
+                A_k&=\{(k,k,k)\}\cup\{(k,k,a),(k,a,k),(a,k,k)
+                |1\leq a\leq n; a\neq k;a\in\N\}\\
+                |A_k|&=\frac{3n-2}{n^3}
+            \end{align*}
+            Damit gilt:
+            \begin{equation*}
+                A_n=\bigcup_{k=1}^{n}A_k,
+            \end{equation*}
+            Mit $A_n$ wie in b,
+            wobei die verschiedenen $A_k$ paarweise
+            verschieden sind. Es folgt also
+            \begin{equation*}
+                \P(A_n)=\sum_{k=1}^{n}\P(A_k)
+                =n\cdot\frac{3n-2}{n^3}=\frac{3n-2}{n^2}
+            \end{equation*}\\
+            \begin{tabular}{c|c}
+                $n$&$\P(A_n)$\\
+                \hline
+                3&$\frac{7}{9}$\\
+                100&$\frac{149}{5000}$
+            \end{tabular}
+    \end{enumerate}
 \end{document}
