@@ -7,7 +7,7 @@
 	\maketitle
 	\section{}
 	\subsection{}
-	\begin{figure}
+	\begin{figure}[h!]
     	\begin{tikzpicture}
     		\begin{axis} [xlabel=Anzahl Seeleute, ylabel=Richtiges Bett]
     			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"01/1_1.csv"};
@@ -15,4 +15,20 @@
         \end{tikzpicture}
   		\caption{Anzahl Seeleute im richtigen bett, Schnitt über 1000 wiederholungen}
     \end{figure}
+    \subsection{}
+    \begin{tabular}{c|l}
+        \textbf{i}&\textbf{avg über 1000 wiederholungen}\\
+        \hline
+        0&1\\
+        1&2.09\\
+        2&3.352\\
+        3&4.815\\
+        4&6.484\\
+        5&8.416\\
+        6&10.854\\
+        7&14.145\\
+        8&19.344\\
+        9&28.935
+    \end{tabular}
+    Die summe über die tabelle entspricht in etwa $n^2$ (für verschiedene n)
 \end{document}
