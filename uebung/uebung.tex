@@ -1,0 +1,18 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\input{title.tex}
+
+\begin{document}
+	\maketitle
+	\section{}
+	\subsection{}
+	\begin{figure}
+    	\begin{tikzpicture}
+    		\begin{axis} [xlabel=Anzahl Seeleute, ylabel=Richtiges Bett]
+    			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"01/1_1.csv"};
+    		\end{axis}
+        \end{tikzpicture}
+  		\caption{Anzahl Seeleute im richtigen bett, Schnitt über 1000 wiederholungen}
+    \end{figure}
+\end{document}
