@@ -1,8 +1,15 @@
 \documentclass{article}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{amsmath, amsfonts}
+\usepackage{enumerate}
 \input{title.tex}
 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\renewcommand{\P}{\mathbb{P}}
 \begin{document}
 	\maketitle
 	\section{}
@@ -31,4 +38,56 @@
         9&28.935
     \end{tabular}
     Die summe über die tabelle entspricht in etwa $n^2$ (für verschiedene n)
+    \subsection{}
+    \subsection{}
+    \begin{enumerate}[a]
+        \item
+            \begin{align*}
+                \Omega = \{1,\hdots,20\}^2,\\
+                \P: \Omega\rightarrow [0,1],
+                \omega\mapsto\frac{1}{400}
+            \end{align*}
+        \item
+            \begin{enumerate}[A]
+                \item
+                    \begin{equation*}
+                        \P(\{(6,i)|1\leq i\leq 20, i\in\N\})
+                        =\frac{20}{400}=\frac{1}{20}
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        \P(\{(6,6)\})
+                        =\frac{1}{400}
+                    \end{equation*}
+                \item
+                    \begin{align*}
+                        &\P(
+                            \{(6,i)|1\leq i\leq 20, i\in\N\}\cup
+                            \{(i,6)|1\leq i\leq 20, i\in\N\}
+                        )\\
+                        &=
+                        \P(\{(6,i)|1\leq i\leq 20, i\in\N\})+
+                        \P(\{(i,6)|1\leq i\leq 20, i\in\N\})-
+                        \P(\{6,6\})\\
+                        &=\frac{20}{400}+\frac{20}{400}-\frac{1}{400}
+                        =\frac{39}{400}
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        &\P(
+                            \{(6,i)|1\leq i\leq 20, i\neq 6, i\in\N\}\cup
+                            \{(i,6)|1\leq i\leq 20, i\neq 6, i\in\N\}
+                        )\\
+                        &=
+                        \P(\{(6,i)|1\leq i\leq 20, i\neq 6, i\in\N\})
+                        \P(\{(i,6)|1\leq i\leq 20, i\neq 6, i\in\N\})\\
+                        &=\frac{19}{400}+\frac{19}{400}=\frac{38}{400}
+                    \end{align*}
+                \item
+                    \begin{equation*}
+                        \P(\{(1,1),(1,2),(1,3),(2,1),(2,2),(3,1)\})
+                        =\frac{6}{400}
+                    \end{equation*}
+            \end{enumerate}
+    \end{enumerate}
 \end{document}
