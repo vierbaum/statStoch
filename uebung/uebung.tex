@@ -269,87 +269,101 @@
                 \end{align*}
     \end{enumerate}
     \subsection{}
-        Wir wählen ein $1<\alpha\in\N$ zu dem wir alle
-        Möglichen kombinationen $\omega\in\Omega$ mit
-        $\alpha=\max\omega$ konstruieren.
-        Dafür definieren wir $B=\{1,\hdots,\alpha-1\}$
-        Wir schauen uns den Fall an, dass $\alpha$ genau
-        ein mal in $\omega$ vorkommt und das an erster
-        Stelle. Dann hat $\omega$ die form:
-        \begin{align*}
-            \alpha b_2b_3\hdots b_n
-        \end{align*}
-        mit $b_i\in B$
-        es gibt also $1 \cdot |B|^{k-1}$
-        möglichkeiten.
-        Selbiges gilt für $\alpha$ an zweiter, $\hdots$,
-        $k$-ter stelle.
-        Es gibt also insgesamt
-        $k\cdot |B|^{k-1}=k\cdot (n-\alpha)^{k-1}$
-        möglichkeiten ein $\omega\in\Omega$ mit
-        $\max\omega=\alpha$ und nur einem Vorkommen von
-        $\alpha$ zu konstruieren.
-        Weiter gibt es genau
-        $(n-\alpha)^{k-i}$ möglichkeiten $\omega$ zu
-        konstruieren mit $i$ $\alpha$s an festen stellen
-        und ${i\choose{k}}$ möglichkeiten $i$ $\alpha$s
-        auf $k$ stellen zu verteilen.
-        Es gibt also
-        \begin{equation*}
-            \sum_{i=1}^{k}{i\choose k}(n-\alpha)^{k-i}
-        \end{equation*}
-        Mögliche $\omega\in\Omega$ mit $\max\omega=\alpha$.
-        Es gilt also:
-        \begin{equation*}
-            F^M(m)=\sum_{\alpha=1}^{m}
-            \sum_{i=1}^{k}{i\choose k}(n-\alpha)^{k-i}
-        \end{equation*}
-        \begin{tabular}{c|c}
-            \textbf{$m$}&\textbf{$\mathbb P(M=m)$}\\
-            \hline
-            1&$\approx 1.66\cdot 10^{-8}$\\
-            2&$\approx 5.08\cdot 10^{-5}$\\
-            3&$\approx 0.002$\\
-            4&$6\approx 0.026$\\
-            5&$\approx 0.194$\\
-            3&$1-\sum_{m\in 0\hdots 5}\mathbb P(M=m)\approx 0.778$
-        \end{tabular}\\
-        \begin{tikzpicture}
-            \begin{axis}[xlabel=m, ylabel=$F^M$]
-                \addplot[color=black] coordinates {
-                    (0,0)
-                    (1,0)
-
-                    (1,0)
-                    (2,0)
-
-                    (2,0)
-                    (3,0)
-
-                    (3,0.002)
-                    (4,0.002)
-
-                    (4,0.028)
-                    (5,0.028)
-
-                    (5,0.222)
-                    (6,0.222)
-
-                    (6,1)
-                    (6.2,1)
-                };
-                \addplot [only marks, mark size=2pt, color=black]
-                coordinates {
+    \begin{enumerate}[a)]
+        \item
+            Wir wählen ein $1<\alpha\in\N$ zu dem wir alle
+            Möglichen kombinationen $\omega\in\Omega$ mit
+            $\alpha=\max\omega$ konstruieren.
+            Dafür definieren wir $B=\{1,\hdots,\alpha-1\}$
+            Wir schauen uns den Fall an, dass $\alpha$ genau
+            ein mal in $\omega$ vorkommt und das an erster
+            Stelle. Dann hat $\omega$ die form:
+            \begin{align*}
+                \alpha b_2b_3\hdots b_n
+            \end{align*}
+            mit $b_i\in B$
+            es gibt also $1 \cdot |B|^{k-1}$
+            möglichkeiten.
+            Selbiges gilt für $\alpha$ an zweiter, $\hdots$,
+            $k$-ter stelle.
+            Es gibt also insgesamt
+            $k\cdot |B|^{k-1}=k\cdot (n-\alpha)^{k-1}$
+            möglichkeiten ein $\omega\in\Omega$ mit
+            $\max\omega=\alpha$ und nur einem Vorkommen von
+            $\alpha$ zu konstruieren.
+            Weiter gibt es genau
+            $(n-\alpha)^{k-i}$ möglichkeiten $\omega$ zu
+            konstruieren mit $i$ $\alpha$s an festen stellen
+            und ${i\choose{k}}$ möglichkeiten $i$ $\alpha$s
+            auf $k$ stellen zu verteilen.
+            Es gibt also
+            \begin{equation*}
+                \sum_{i=1}^{k}{i\choose k}(n-\alpha)^{k-i}
+            \end{equation*}
+            Mögliche $\omega\in\Omega$ mit $\max\omega=\alpha$.
+            Es gilt also:
+            \begin{equation*}
+                F^M(m)=\sum_{\alpha=1}^{m}
+                \sum_{i=1}^{k}{i\choose k}(n-\alpha)^{k-i}
+            \end{equation*}
+            \begin{tabular}{c|c}
+                \textbf{$m$}&\textbf{$\mathbb P(M=m)$}\\
+                \hline
+                1&$\approx 1.66\cdot 10^{-8}$\\
+                2&$\approx 5.08\cdot 10^{-5}$\\
+                3&$\approx 0.002$\\
+                4&$6\approx 0.026$\\
+                5&$\approx 0.194$\\
+                3&$1-\sum_{m\in 0\hdots 5}\mathbb P(M=m)\approx 0.778$
+            \end{tabular}\\
+            \begin{tikzpicture}
+                \begin{axis}[xlabel=m, ylabel=$F^M$]
+                    \addplot[color=black] coordinates {
                         (0,0)
                         (1,0)
+
+                        (1,0)
                         (2,0)
+
+                        (2,0)
+                        (3,0)
+
                         (3,0.002)
+                        (4,0.002)
+
                         (4,0.028)
+                        (5,0.028)
+
                         (5,0.222)
+                        (6,0.222)
+
                         (6,1)
+                        (6.2,1)
                     };
-            \end{axis}
-        \end{tikzpicture}
-
-
+                    \addplot [only marks, mark size=2pt, color=black]
+                    coordinates {
+                            (0,0)
+                            (1,0)
+                            (2,0)
+                            (3,0.002)
+                            (4,0.028)
+                            (5,0.222)
+                            (6,1)
+                        };
+                \end{axis}
+            \end{tikzpicture}
+        \item
+            \begin{align*}
+                \E(X)
+                =&1\cdot\P(X=1)+2\cdot\P(X=2)+3\cdot\P(X=3)
+                +\hdots+n\cdot\P(X=n)\\
+                =&\left[\P(X=1)+\P(X=2)+\P(X=3)+\hdots+\P(X=n)\right]\\
+                &+\left[\P(X=2)+\P(X=3)+\hdots+\P(X=n)\right]\\
+                &+\left[\P(X=3)+\hdots+\P(X=n)\right]\\
+                &\vdots\\
+                &+\left[\P(X=n)\right]\\
+                =&\P(X\geq 1)+\P(X\geq 2)+\hdots+\P(X\geq n)\\
+                =&\sum_{m=1}^{n}\P(X\geq m)
+            \end{align*}
+    \end{enumerate}
 \end{document}
