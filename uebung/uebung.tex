@@ -365,5 +365,18 @@
                 =&\P(X\geq 1)+\P(X\geq 2)+\hdots+\P(X\geq n)\\
                 =&\sum_{m=1}^{n}\P(X\geq m)
             \end{align*}
+        \item
+            \begin{align*}
+                \E(X)=\sum_{m=1}^n\P(X\geq m)=
+                \sum_{m=1}^n 1-\left(\frac{m-1}{n}\right)^k
+            \end{align*}
+            Denn
+            \begin{equation*}
+                \P(X\geq m)=1-\P(X<m)=1-\left(\frac{m-1}{n}\right)^k
+            \end{equation*}
+            Es ist
+            \begin{equation*}
+                P(X<m)=\left(\frac{m-1}{n}\right)^k.
+            \end{equation*}
     \end{enumerate}
 \end{document}
