@@ -40,7 +40,7 @@
     Die summe über die tabelle entspricht in etwa $n^2$ (für verschiedene n)
     \subsection{}
     \subsection{}
-    \begin{enumerate}[a]
+    \begin{enumerate}[a)]
         \item
             \begin{align*}
                 \Omega = \{1,\hdots,20\}^2,\\
@@ -48,7 +48,7 @@
                 \omega\mapsto\frac{1}{400}
             \end{align*}
         \item
-            \begin{enumerate}[A]
+            \begin{enumerate}[A)]
                 \item
                     \begin{equation*}
                         \P(\{(6,i)|1\leq i\leq 20, i\in\N\})
@@ -128,9 +128,10 @@
         \end{axis};
     \end{tikzpicture}\\
     \begin{tikzpicture}
-        \begin{axis}
-            xlabel=k,
-            ylabel=$F^X(k)$,
+        \begin{axis} [
+                xlabel=k,
+                ylabel=$F^X(k)$,
+            ]
             \addplot[color=black] coordinates {
                 (-0.2,0)
                 (0,0)
@@ -156,9 +157,9 @@
     Wir definieren $\Omega=\{1,\hdots,n\}^3$ als Tripel mit
     Stimme der entsprächenden Mitglieder.
     Demnach ist $\P(\omega)=\frac{1}{n^3} (\omega\in\Omega)$
-    \begin{enumerate}[a]
+    \begin{enumerate}[a)]
         \item
-            \begin{enumerate}[i]
+            \begin{enumerate}[(i)]
                 \item
                     \begin{equation*}
                         A=\{(1,a,b)|1\leq a,b\leq n; a,b\in\N\},
@@ -206,5 +207,65 @@
                 3&$\frac{7}{9}$\\
                 100&$\frac{149}{5000}$
             \end{tabular}
+    \end{enumerate}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{tabular}{c|cccccc}
+           	    $k$&1&2&3&4&5&6\\
+                \hline
+                $X(k)$&4&1&0&1&4&9
+            \end{tabular}
+            \begin{align*}
+                \P(X=0)&=\P(\{3\})=\frac{1}{6}\\
+                \P(X=1)&=\P(\{2,4\})=\frac{2}{6}\\
+                \P(X=4)&=\P(\{1,5\})=\frac{2}{6}\\
+                \P(X=9)&=\P(\{6\})=\frac{1}{6}
+            \end{align*}
+            \begin{tikzpicture}
+                \begin{axis}[
+                        xlabel=k,
+                        ylabel=$F^X(k)$,
+                    ]
+                    \addplot[color=black] coordinates {
+                        (-0.2,0)
+                        (0,0)
+
+                        (0,0.167)
+                        (1,0.167)
+
+                        (1,0.5)
+                        (4,0.5)
+
+                        (4,0.83)
+                        (9,0.83)
+
+                        (9, 1)
+                        (9.2, 1)
+                    };
+                    \addplot [only marks, mark size=2pt, color=black]
+                    coordinates {
+                            (0,0.167)
+                            (1,0.5)
+                            (4,0.83)
+                            (9,1)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+            \item
+                \begin{align*}
+                    \E(x)&=0\P(X=0)+1\P(X=1)+4\P(X=4)+9\P(X=9)\\
+                    &=0\cdot\frac{1}{6}+1\cdot\frac{2}{6}
+                    +4\cdot\frac{2}{6}+9\cdot\frac{1}{6}
+                    =\frac{19}{6}\approx 3.17\\
+                    \V(X)&=\E((X-\E(X))^2)\\
+                    &=\frac{1}{6}\cdot\left(0-\frac{19}{6}\right)^2
+                    +\frac{2}{6}\cdot\left(1-\frac{19}{6}\right)^2
+                    +\frac{2}{6}\cdot\left(4-\frac{19}{6}\right)^2
+                    +\frac{1}{6}\cdot\left(9-\frac{19}{6}\right)^2\\
+                    &=\frac{361+338+50+1225}{216}=\frac{329}{36}\\
+                    \P(X\leq E(X))&=\P(X\leq 3)=\P(X=0)+\P(X=1)
+                    =\frac{1}{6}+\frac{2}{6}=\frac{1}{2}
+                \end{align*}
     \end{enumerate}
 \end{document}
