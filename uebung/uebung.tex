@@ -395,4 +395,51 @@
                 P(X<m)=\left(\frac{m-1}{n}\right)^k.
             \end{equation*}
     \end{enumerate}
+    \section{}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{align*}
+                \P(A|B)&=\P(B|A)\\
+                \frac{\P(A\cap B)}{\P(B)}&=
+                \frac{\P(B\cap A)}{\P(A)}\\
+                \frac{1}{\P(B)}&=\frac{1}{\P(A)}\\
+                \P(A)&=\P(B)
+            \end{align*}
+        \item
+            \begin{enumerate}[(i)]
+                \item
+                    Ist K(rank), $\overline{K}$ nicht krank,
+                    P(ositiver Test), $\overline{P}$
+                    negativer Test, so gilt
+                    \begin{align*}
+                        \P(\overline{P}|K)=\frac{1}{100},\\
+                        \P(P|\overline{K})=\frac{1}{100},\\
+                        \P(K)=\frac{1}{1000},\\
+                        \P(\overline{K})=\frac{999}{1000}
+                    \end{align*}
+                    und demnach auch
+                    \begin{align*}
+                        \P(P|K)=\frac{99}{100}
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        \P(P)
+                        &=\P(P|K)\cdot\P(K)
+                        +\P(P|\overline{K})\cdot\P(\overline{K})\\
+                        &=\frac{99}{100}\cdot\frac{1}{1000}
+                        +\frac{1}{100}\cdot\frac{999}{1000}\\
+                        &=\frac{549}{50\,000}
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        \P(K|P)&=
+                        \frac{\P(P|K)\cdot\P(K)}{\P(P)}\\
+                        &=\frac{
+                            \frac{99}{100}\cdot\frac{1}{1000}
+                        } {\frac{549}{50\,000}}\\
+                        &=\frac{11}{122}
+                    \end{align*}
+            \end{enumerate}
+    \end{enumerate}
 \end{document}
