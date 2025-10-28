@@ -520,4 +520,79 @@
             \end{align*}
             Demnach sind $A\cup B$ und $C$ unabhängig.
     \end{enumerate}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{enumerate}[(i)]
+           	    \item
+                    \begin{tabular}{c|cc}
+                        $k$&$\P(X=k)$&$\P(Y=k)$\\
+                        \hline
+                        0&$\frac{1}{8}$&$\frac{1}{16}$\\
+                        1&$\frac{3}{8}$&$\frac{6}{16}$\\
+                        2&$\frac{3}{8}$&$\frac{9}{16}$\\
+                        3&$\frac{1}{8}$&0\\
+                        4&0&0
+                    \end{tabular}
+                \item
+                    $\E(Y)=np=2\cdot\frac{3}{4}=\frac{3}{2}$\\
+                    $\V(Y)=np(1-p)=2\cdot\frac{3}{4}\cdot\frac{1}{4}=\frac{3}{8}$\\
+                    \begin{tabular}{c|ccc}
+                        $k$&0&1&2\\
+                        $\P(Y\leq K)$&$\frac{1}{16}$&$\frac{7}{16}$&$1$
+                    \end{tabular}
+
+                    \begin{tikzpicture}
+                        \begin{axis} [
+                                xlabel=k,
+                                ylabel=$F^Y(k)$,
+                            ]
+                            \addplot[color=black] coordinates {
+                                (-0.2,0)
+                                (0,0)
+
+                                (0,0.0625)
+                                (1,0.0625)
+
+                                (1,0.4375)
+                                (2,0.4375)
+
+                                (2,1)
+                                (2.2,1)
+                            };
+                            \addplot [only marks, mark size=2pt, color=black]
+                            coordinates {
+                                    (0,0.0625)
+                                    (1,0.4375)
+                                    (2,1)
+                            };
+                        \end{axis}
+                    \end{tikzpicture}
+                \item
+                    \begin{align*}
+                        \P(X=Y)
+                        &=\P(X=Y=0)+\P(X=Y=1)+\P(X=Y=2)\\
+                        &=\P(X=0\land Y=0)+\P(X=1\land Y=1)+\P(X=2\land Y=2)\\
+                        &=\P(X=0)\P(Y=0)+\P(X=1)\P(Y=1)+\P(X=2)\P(Y=2)\\
+                        &=\frac{1}{8}\cdot\frac{1}{16}+\frac{3}{8}\frac{6}{16}+\frac{3}{8}\frac{9}{16}\\
+                        &=\frac{23}{64}
+                    \end{align*}
+            \end{enumerate}
+        \item
+            \begin{tabular}{c|cc}
+                $k$&Anzahl&$\P(Z=k)$\\
+                \hline
+                $-5$&$1$&$\frac{243}{1048576}$\\
+                $-4$&$10$&$\frac{2025}{524288}$\\
+                $-3$&$45$&$\frac{28215}{1048576}$\\
+                $-2$&$120$&$\frac{13275}{131072}$\\
+                $-1$&$210$&$\frac{116715}{524288}$\\
+                $0$&$252$&$\frac{76075}{262144}$\\
+                $1$&$210$&$\frac{116715}{524288}$\\
+                $2$&$120$&$\frac{13275}{131072}$\\
+                $3$&$45$&$\frac{28215}{1048576}$\\
+                $4$&$10$&$\frac{2025}{524288}$\\
+                $5$&$1$&$\frac{243}{1048576}$\\
+            \end{tabular}
+    \end{enumerate}
 \end{document}
