@@ -595,4 +595,122 @@
                 $5$&$1$&$\frac{243}{1048576}$\\
             \end{tabular}
     \end{enumerate}
+    \subsection{}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            Da $\P$ geometrisch verteilt ist, gilt
+            $\P(k)=(1-p)^{k-1}p=\frac{1}{2^{k-1}}\cdot\frac{1}{2}=\frac{1}{2^k}$
+        \item
+            Es gilt
+            \begin{figure}[h!]
+                \begin{tikzpicture}
+                    \begin{axis} [
+                        ybar,
+                        xlabel=$k$,
+                        ylabel=$X_k$,
+                        xmin = 0,
+                        xmax = 6,
+                        ymin = -0.5,
+                        ymax = 6.5
+                        ]
+                        \addplot [color=black] coordinates {
+                            (1, 2)
+                            (3, 2)
+                            (5, 2)
+                        };
+                    \end{axis};
+                    \begin{axis} [
+                            ylabel=$X\text{=}k$,
+                            y label style={at={(1.25,0.5)}},
+                            xtick = false,
+                            xmin = 0,
+                            xmax = 6,
+                            ymin = -0.5,
+                            ymax = 6.5
+                        ]
+                        \addplot[color=black] coordinates {
+                            (0,0)
+                            (1,0)
+
+                            (1,2)
+                            (3,2)
+
+                            (3,4)
+                            (5,4)
+
+                            (5,6)
+                            (6,6)
+                        };
+                        \addplot [only marks, mark size=2pt, color=black]
+                        coordinates {
+                                (1,2)
+                                (3,4)
+                                (5,6)
+                        };
+                    \end{axis}
+                \end{tikzpicture}
+            \end{figure}
+
+            Demnach ist
+            \begin{equation}
+                \E(X_i)=
+                \begin{cases}
+                    2\cdot\P(i)=\frac{1}{2^{i-1}}&i\text{ ungerade}\\
+                    0&\text{sonst}
+                \end{cases}
+            \end{equation}
+            Weiter ist
+            \begin{align*}
+                \E(X)
+                &=\sum_{k\in\N^+}\E(X_k)\\
+                &=\sum_{k\text{ ungerade}}\E(X_k)\\
+                &=\sum_{k\in\N_0}\E(X_{2k+1})\\
+                &=\sum_{k\in\N_0}\frac{1}{2^{2k}}\\
+                &=\sum_{k\in\N_0}\left(\frac{1}{4}\right)^k\\
+                &=\frac{1}{1-\frac{1}{4}}\\
+                &=\frac{4}{3}
+            \end{align*}
+            Zähle $Y_i$ für gerade $i$ den Betrag, den A an B
+            im Zug $i$ zahlt und $Y$ die Summe, die A insgesamt an
+            B zahlt.
+            Dann ist
+            \begin{equation*}
+                \E(Y_i)=
+                \begin{cases}
+                    3 \cdot \frac{1}{2^i}&i\text{ gerade}\\
+                    0&\text{sonst}
+                \end{cases}
+            \end{equation*}
+            und
+            \begin{align*}
+                \E(Y)
+                &=\sum_{k\text{ gerade}}\E(Y_i)\\
+                &=\sum_{k\in\N_0}\E(Y_{2(k+1)})\\
+                &=\sum_{k\in\N_0}\frac{3}{2^{2(k+1)}}\\
+                &=3\sum_{k\in\N_0}\left(\frac{1}{4}\right)^{k+1}\\
+                &=\frac{3}{4}\sum_{k\in\N_0}\left(\frac{1}{4}\right)^{k}\\
+                &=\frac{3}{4}\cdot\frac{4}{3}=1\\
+            \end{align*}
+        \item
+            Da Spieler A $\E(Y)-\E(X)=\frac{1}{3}$
+            gewinn macht sollte A vor beginn des Spiels
+            Spieler B einen Einsatz von $\frac{1}{3}$\texteuro
+            Zahlen.
+            Denn
+            \begin{align*}
+                \E(\text{Gewinn A})=\E(Y)-\E(X)-\frac{1}{3}=0\\
+                \E(\text{Gewinn B})=\E(X)-\E(Y)+\frac{1}{3}=0
+            \end{align*}
+            Um das Spiel mit den Auszahlungen fair zu machen müssen wir
+            diese anpassen
+            \begin{align*}
+                \E(x\cdot X)&=\E(Y)\\
+                x\E(X)&=\E(Y)\\
+                x\cdot\frac{4}{3}&=1\\
+                x=\frac{3}{4}
+            \end{align*}
+            Demnach müsste bei Wappen B $2$\texteuro$\cdot\frac{3}{4}=\frac{3}{2}$\texteuro an A
+            auszahlen, dass das Spiel gerecht ist.
+    \end{enumerate}
 \end{document}
