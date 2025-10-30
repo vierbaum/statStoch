@@ -713,4 +713,85 @@
             Demnach müsste bei Wappen B $2$\texteuro$\cdot\frac{3}{4}=\frac{3}{2}$\texteuro an A
             auszahlen, dass das Spiel gerecht ist.
     \end{enumerate}
+    \newpage
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            Allgemein gilt
+            \begin{align*}
+                \P(X_i>k)
+                &=1-\P(X_i\leq k)\\
+                &=1-\sum_{n=0}^{k}\P(X_i = n)\\
+                &=1-\sum_{n=0}^{k} q_i^np_i\\
+                &=1-p_i\sum_{n=0}^{k} q_i^n\\
+                &=1-p_i\cdot\frac{1-q_i^{k+1}}{1-q_i}\\
+                &=1-\left(1-q_i^{k+1}\right)\\
+                &=q_i^{k+1}
+            \end{align*}
+            Da $0<p_i<1$ ist $q_i\neq 1$
+            \begin{align*}
+                \P(X_3=k)
+                &=\P(\min\{X_1,X_2\}=k)\\
+                &=\P((\min\{X_1,X_2\})^{-1}(k))\\
+                &=\P(\{\omega_i\in\Omega|
+                    \min\{X_1(\omega_i),X_2(\omega_i)\}=k\})\\
+                &=\P(\{\omega_i\in\Omega|
+                    \min\{
+                        p_1^i q_1^{i-1},
+                        p_2^i q_2^{i-1}
+                    \}=k\})\\
+                &=\P(\{\omega_i\in\Omega|
+                        (p_1^iq_1^{i-1}=k\land
+                        p_2^i q_2^{i-1}>k)\lor\\
+                        &(p_1^iq_1^{i-1}>k\land
+                        p_2^i q_2^{i-1}=k)\lor
+                        (p_1^iq_1^{i-1}=k\land
+                        p_2^i q_2^{i-1}=k))\\
+                &=\P(
+                    \{X_1=k\}\cap\{X_2>k\}
+                    +\{X_1>k\}\cap\{X_2=k\}
+                    +\{X_1=k\}\cap\{X_2=k\}
+                )\\
+                &=\P(\{X_1=k\}\cap\{X_2>k\})
+                    +\P(\{X_1>k\}\cap\{X_2=k\})
+                    +\P(\{X_1=k\}\cap\{X_2=k\})
+                )\\
+                &=\P(X_1=k)\cdot\P(X_2>k)
+                +\P(X_1>k)\cdot\P(X_2=k)
+                +\P(X_1=k)\cdot\P(X_2=k)\\
+                &=
+                p_1q_1^k\cdot q_2^{k+1}
+                +q_1^{k+1}\cdot p_2q_2^k
+                +p_1q_1^k\cdot p_2q_2^k\\
+                &=p_1(1-p_1)^k\cdot (1-p_2)^{k+1}
+                +(1-p_1)^{k+1}\cdot p_2(1-p_2)^k
+                +p_1(1-p_2)^k\cdot p_2(1-p_2)^k\\
+                &=(p_1+p_2-p_1p_2)(1-p_1)^k(1-p_2)^k\\
+                &=(p_1+p_2-p_1p_2)(q_1q_2)^k\\
+            \end{align*}
+            Wir testen $p_3=p_1+p_2-p_1p_2$ und $q_3=q_1q_2$
+            \begin{align*}
+                1-p_3
+                &=1-(p_1+p_2-p_1p_2)\\
+                &=(1-p_1)(1-p_2)=q_1q_2=q_3
+            \end{align*}
+            Demnach ist $X_3$ geometrisch verteilt mit
+            $p_3=p_1+p_2-p_1p_2,q_3=q_1q_2$
+        \item
+            $p_1+p_2$ gibt die Wahrscheinlichkeit an, dass
+            $X_1=k$ oder $X_2=k$, hier zählen wir aber
+            $X_1=X_2=k$ doppelt, deshalb wird einmal
+            $X_1=K_2=k (p_1p_2)$ abgezogen.
+        \item
+            Wir haben
+            \begin{equation*}
+                p=p_\text{Münze}+p_\text{Würfel}
+                -p_\text{Münze}p_\text{Würfel}
+                =\frac{1}{2}+\frac{1}{6}
+                -\frac{1}{2}\cdot\frac{1}{6}
+                =\frac{7}{12}
+            \end{equation*}
+            Das spiel hat dieselbe verteilung
+            wie $G(p)$ mit $\P(X=k)=pq^k$
+    \end{enumerate}
 \end{document}
