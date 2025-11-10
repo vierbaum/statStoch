@@ -413,14 +413,15 @@
                     P(ositiver Test), $\overline{P}$
                     negativer Test, so gilt
                     \begin{align*}
-                        \P(\overline{P}|K)=\frac{1}{100},\\
-                        \P(P|\overline{K})=\frac{1}{100},\\
-                        \P(K)=\frac{1}{1000},\\
-                        \P(\overline{K})=\frac{999}{1000}
+                        &\P(\overline{P}|K)=\frac{1}{100},\\
+                        &\P(P|\overline{K})=\frac{1}{100},\\
+                        &\P(K)=\frac{1}{1000},\\
+                        &\P(\overline{K})=\frac{999}{1000}
                     \end{align*}
                     und demnach auch
                     \begin{align*}
-                        \P(P|K)=\frac{99}{100}
+                        &\P(P|K)=\frac{99}{100}\\
+                        &\P(\overline{P}|\overline{K})=1-\P(P|\overline{K})=\frac{99}{100}
                     \end{align*}
                 \item
                     \begin{align*}
@@ -447,7 +448,7 @@
         \item
             $A, B$ sind unabhängig, wenn gilt
             $\P(A\cap B)=\P(A)\P(B)$, dies gilt für\\
-            $B\in\{\{b,d\},\{a,c\},\{a,b,c,d\}\}$
+            $B\in\{\{b,d\},\{a,c\},\{a,b,c,d\},\emptyset\}$
         \item
             \begin{enumerate}[(i)]
                 \item
@@ -484,7 +485,7 @@
                     Es gilt
                     \begin{align*}
                         \overline{A}\cap\overline{B}
-                        &=\{x\in\Omega|\neg(x\in A)\land\neq(x\in B)\}\\
+                        &=\{x\in\Omega|\neg(x\in A)\land\neg(x\in B)\}\\
                         &=\{x\in\Omega|\neg(x\in A\lor x\in B)\}\\
                         &=\overline{A\cup B}.
                     \end{align*}
@@ -625,57 +626,13 @@
             Da $\P$ geometrisch verteilt ist, gilt
             $\P(k)=(1-p)^{k-1}p=\frac{1}{2^{k-1}}\cdot\frac{1}{2}=\frac{1}{2^k}$
         \item
+            \begin{tabular}{c|cccccc}
+                Zug k&0&1&2&3&4&5\\
+                \hline
+                $X_1(k)$&0&2&0&0&0&0\\
+                $X_3(k)$&0&0&0&2&0&0\\
+            \end{tabular}\\
             Es gilt
-            \begin{figure}[h!]
-                \begin{tikzpicture}
-                    \begin{axis} [
-                        ybar,
-                        xlabel=$k$,
-                        ylabel=$X_k$,
-                        xmin = 0,
-                        xmax = 6,
-                        ymin = -0.5,
-                        ymax = 6.5
-                        ]
-                        \addplot [color=black] coordinates {
-                            (1, 2)
-                            (3, 2)
-                            (5, 2)
-                        };
-                    \end{axis};
-                    \begin{axis} [
-                            ylabel=$X\text{=}k$,
-                            y label style={at={(1.25,0.5)}},
-                            xtick = false,
-                            xmin = 0,
-                            xmax = 6,
-                            ymin = -0.5,
-                            ymax = 6.5
-                        ]
-                        \addplot[color=black] coordinates {
-                            (0,0)
-                            (1,0)
-
-                            (1,2)
-                            (3,2)
-
-                            (3,4)
-                            (5,4)
-
-                            (5,6)
-                            (6,6)
-                        };
-                        \addplot [only marks, mark size=2pt, color=black]
-                        coordinates {
-                                (1,2)
-                                (3,4)
-                                (5,6)
-                        };
-                    \end{axis}
-                \end{tikzpicture}
-            \end{figure}
-
-            Demnach ist
             \begin{equation}
                 \E(X_i)=
                 \begin{cases}
