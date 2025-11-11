@@ -456,7 +456,7 @@
                     $\P(X\setminus a)=\P(X)-\P(a)$ gilt.
                     \begin{align*}
                         \P(X\setminus a)&
-                        =\P(\{x\in\X|x\neq a\})\\
+                        =\P(\{x\in X|x\neq a\})\\
                         &=\P(\sum_{x\in X,x\neq a}x)\\
                         &=\sum_{x\in X,x\neq a}\P(x)\\
                         &=\sum_{x\in X}\P(x)-\P(a)\\
@@ -828,4 +828,35 @@
                 &=\frac{31}{4}
             \end{align*}
     \end{enumerate}
+    \section{}
+    \subsection{}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis} [
+                ybar,
+                xlabel=$k$,
+                ylabel=$\P(W_5\text{=}k)$,
+                xmin = 4,
+                xmax = 31,
+                ymin = -0.05,
+                ymax = 0.15,
+                bar width=5pt
+                ]
+     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/dist1_1.csv"};
+            \end{axis};
+        \end{tikzpicture}
+        \begin{tikzpicture}
+            \begin{axis} [
+                    ylabel=$F^{W_5}(x)$,
+                    xlabel=$x$,
+                    xmin = 4,
+                    xmax = 31,
+                    ymin = -0.05,
+                    ymax = 1.1
+                ]
+     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/distf1_1.csv"};
+     			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/distfp1_1.csv"};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
 \end{document}
