@@ -842,7 +842,7 @@
                 ymax = 0.15,
                 bar width=5pt
                 ]
-     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/dist1_1.csv"};
+     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1dist.csv"};
             \end{axis};
         \end{tikzpicture}
         \begin{tikzpicture}
@@ -854,9 +854,20 @@
                     ymin = -0.05,
                     ymax = 1.1
                 ]
-     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/distf1_1.csv"};
-     			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/distfp1_1.csv"};
+     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1distf.csv"};
+     			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1distfp.csv"};
             \end{axis}
         \end{tikzpicture}
     \end{center}
+    \subsection{}
+    \begin{tikzpicture}
+        \begin{axis} [
+            xlabel=$n$,
+            ylabel=$\epsilon$,
+            ]
+ 			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1epsilon.csv"};
+ 			\addplot [only marks, mark size=2pt, color=blue] table [x=x, y=y, col sep=comma] {"03/3_1epsilont.csv"};
+        \end{axis};
+    \end{tikzpicture}
+
 \end{document}
