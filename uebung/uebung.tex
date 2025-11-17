@@ -830,44 +830,91 @@
     \end{enumerate}
     \section{}
     \subsection{}
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis} [
-                ybar,
-                xlabel=$k$,
-                ylabel=$\P(W_5\text{=}k)$,
-                xmin = 4,
-                xmax = 31,
-                ymin = -0.05,
-                ymax = 0.15,
-                bar width=5pt
-                ]
-     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1dist.csv"};
-            \end{axis};
-        \end{tikzpicture}
-        \begin{tikzpicture}
-            \begin{axis} [
-                    ylabel=$F^{W_5}(x)$,
-                    xlabel=$x$,
-                    xmin = 4,
-                    xmax = 31,
-                    ymin = -0.05,
-                    ymax = 1.1
-                ]
-     			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1distf.csv"};
-     			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1distfp.csv"};
-            \end{axis}
-        \end{tikzpicture}
-    \end{center}
+    \begin{enumerate}[a)]
+        \item
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis} [
+                        ybar,
+                        xlabel=$k$,
+                        ylabel=$\P(W_5\text{=}k)$,
+                        xmin = 4,
+                        xmax = 31,
+                        ymin = -0.05,
+                        ymax = 0.15,
+                        bar width=5pt
+                        ]
+             			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1dist.csv"};
+                    \end{axis};
+                \end{tikzpicture}
+                \begin{tikzpicture}
+                    \begin{axis} [
+                            ylabel=$F^{W_5}(x)$,
+                            xlabel=$x$,
+                            xmin = 4,
+                            xmax = 31,
+                            ymin = -0.05,
+                            ymax = 1.1
+                        ]
+             			\addplot [color=black] table [x=x, y=y, col sep=comma] {"03/3_1distf.csv"};
+             			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1distfp.csv"};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+        \item
+            \begin{tikzpicture}
+                \begin{axis} [
+                    xlabel=$n$,
+                    ylabel=$\epsilon$,
+                    ]
+         			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1epsilon.csv"};
+         			\addplot [only marks, mark size=2pt, color=blue] table [x=x, y=y, col sep=comma] {"03/3_1epsilont.csv"};
+                \end{axis};
+            \end{tikzpicture}
+    \end{enumerate}
     \subsection{}
-    \begin{tikzpicture}
-        \begin{axis} [
-            xlabel=$n$,
-            ylabel=$\epsilon$,
-            ]
- 			\addplot [only marks, mark size=2pt, color=black] table [x=x, y=y, col sep=comma] {"03/3_1epsilon.csv"};
- 			\addplot [only marks, mark size=2pt, color=blue] table [x=x, y=y, col sep=comma] {"03/3_1epsilont.csv"};
-        \end{axis};
-    \end{tikzpicture}
-
+    \begin{enumerate}[a)]
+        \item
+            \begin{enumerate}[(i)]
+                \item
+                    Es gilt $Y_i=2X_i-1$.
+                    Demnach ist
+                    \begin{align*}
+                        \E(Y_i)&=\E(2X_i-1)\\
+                        &=2\E(X_i)-1\\
+                        &=2p-1\\
+                        \V(Y_i)&=\V(2X_i-1)\\
+                        &\overset{3.68}=2^2 \V(X_i)\\
+                        &=4(p(1-p))\\
+                        &=4p(1-p)
+                    \end{align*}
+                \item
+                    $Z_n=\sum_{i=1}^n Y_i$
+                    \begin{align*}
+                        \E(Z_n)&=\E\left(\sum_{i=1}^n Y_i\right)\\
+                        &=\sum_{i=1}^n\E(Y_i)\\
+                        &=n\E(Y_i)\\
+                        &=n(2p-1)\\
+                        \V(Z_n)&=\V\left(\sum_{i=1}^n Y_i\right)\\
+                        &\overset{3.160}=\sum_{i=1}^n\V(Y_i)\\
+                        &=n\V(Y_i)\\
+                        &=4np(1-p)
+                    \end{align*}
+            \end{enumerate}
+        \item
+            \begin{align*}
+                \E(U_n)=
+                \E(\alpha_n(Z_n-\beta_n))
+                &\overset{!}=0\\
+                \alpha_n(\E(Z_n)-\beta_n)&=0\\
+                \E(Z_n)-\beta_n&=0\\
+                \beta_n&=\E(Z_n)\\
+                &=n(2p-1)\\
+                \V(U_n)=\V(\alpha_n(Z_n-\beta_n))
+                &\overset{!}=1\\
+                \alpha_n^2\V(Z_n)&=1\\
+                \alpha&=\frac{1}{\sqrt{\V(Z_n)}}\\
+                &=\frac{1}{\sqrt{4np(1-p)}}
+            \end{align*}
+    \end{enumerate}
 \end{document}
