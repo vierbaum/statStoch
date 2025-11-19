@@ -971,6 +971,81 @@
             Da die Einzelnen Intervalle gleich groß sind,
             gilt $P(Y=k)=\frac{1}{n}$ und somit ist
             $(Y(\Omega),\P^Y)$ ein Laplace-Experiment.
-
+    \end{enumerate}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{tikzpicture}
+                \begin{axis} [
+                    xlabel=$x$,
+                    ylabel=$f^X(x)$,
+                    ]
+         			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"03/3_4fx.csv"};
+                \end{axis};
+            \end{tikzpicture}\\
+            \begin{tikzpicture}
+                \begin{axis} [
+                    xlabel=$x$,
+                    ylabel=$f^X(x)$,
+                    ]
+         			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"03/3_4F.csv"};
+                \end{axis};
+            \end{tikzpicture}
+        \item
+            \begin{itemize}
+                \item
+                    \begin{equation*}
+                        \P(0\leq X\leq 1)=F^X(1)
+                        =1-e^{-\frac{1}{2}}
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        \P(X\geq 2)=1-F^X(2)=1-(1-e^{-1})
+                        =\frac{1}{e}
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        \P(2\leq X\leq 3)=F^X(3)-F^X(2)
+                        =\left(1-e^{-\frac{3}{2}}\right)
+                        -\left(1-e^{-1}\right)
+                        =e^{-1}-e^{-\frac{3}{2}}
+                    \end{equation*}
+            \end{itemize}
+        \item
+            \begin{align*}
+                \P(X\leq 3|X>2)
+                =\frac{\P(2\leq X\leq 3)}{\P(X>2)}
+                =\frac{e^{-1}-e^{-\frac{3}{2}}}{e^{-1}}
+                =1-e^{-\frac{1}{2}}
+            \end{align*}
+        \item
+            \begin{align*}
+                \frac{1}{2}&=P(X\leq x_{med})\\
+                &=\int_{-\infty}^{x_{med}}f^X(x)dx\\
+                &=\int_{-\infty}^0f^X(x)dx
+                +\int_{0}^{x_{med}}f^X(x)dx\\
+                &=0+
+                \int_{0}^{x_{med}}\frac{1}{2}e^{-\frac{1}{2}x}dx\\
+                &=
+                \left[
+                    -e^{-\frac{1}{2}x}
+                \right]_0^{x_{med}}\\
+                &=1-e^{-\frac{1}{2}x_{med}}\\
+                \ln\left(\frac{1}{2}\right)
+                &=-\frac{1}{2}x_{med}\\
+                x_{med}&=-2\ln\left(\frac{1}{2}\right)
+            \end{align*}
+        \item
+            Da $Y:=\lfloor X\rfloor$, gilt
+            \begin{equation*}
+                \P(Y=k)=\P(k\leq X\leq k+1)=\P(X\geq k)-\P(X\geq k+1)
+            \end{equation*}
+            Da $X$ Gedächnislos ist, folgt $\P(X\geq t)=e^{-\lambda t}$.
+            Es gilt
+            \begin{equation*}
+                \P(Y=k)=e^{-\lambda k}-e^{-\lambda(k+1)}=e^{-\lambda k}(1-e^{-\lambda})=
+                \left(e^{-\lambda}\right)^k(1-e^{-\lambda})
+            \end{equation*}
+            Also ist $Y\sim G(e^{-\frac{1}{2}})$ und $\E(Y)=\sqrt{e}-1$
     \end{enumerate}
 \end{document}
