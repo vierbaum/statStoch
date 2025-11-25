@@ -1054,4 +1054,80 @@
                 \E(Y)=\frac{1}{1-e^{-\frac{1}{2}}}-1=\frac{1}{\sqrt{e}-1}
             \end{equation*}
     \end{enumerate}
+    \newpage
+    \section{}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{enumerate}[(i)]
+                \item
+                    \begin{equation*}
+                        \P(X\leq x)=\Phi(x)
+                    \end{equation*}
+                \item
+                    \begin{equation*}
+                        \P(X\leq x)=\frac{1}{4}=\P(X=Z_{0.25})
+                    \end{equation*}
+                \item
+                    \begin{align*}
+                        \P(X\geq x)
+                        &=1-\P(X\leq x)\\
+                        &=1-\frac{1}{4}\\
+                        &=\P(X=Z_{0.75})
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        \frac{1}{4}
+                        &=\P(-1\leq X\leq x)\\
+                        &=\int_{-1}^{x}\varphi(t)dt\\
+                        &=\int_{-\infty}^{x}\varphi(t)dt
+                        -\int_{-\infty}^{-1}\varphi(t)dt\\
+                        &=\Phi(x)-\Phi(-1)\\
+                        &\approx\Phi(x)-0.159\\
+                        0.409&\approx\Phi(x)\\
+                        &\approx\P(X=Z_{0.409})
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        \P(Y\leq y)
+                        &=\int_{-\infty}^y \frac{1}{\sigma\sqrt{2\pi}}
+                        \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+                    \end{align*}
+                    Wir wissen für $Z\sim N(0,1)$ gilt:
+                    $Y:=\sigma Z+\mu\Leftrightarrow Z:= \frac{Y-\mu}{\sigma}$
+                    Also ist:
+                    \begin{align*}
+                        \P(Y\leq y)&=\P\left(Z\leq \frac{y-\mu}{\sigma}\right)=\Phi\left(\frac{y-\mu}{\sigma}\right)
+                    \end{align*}
+                \item
+                    \begin{align*}
+                        \frac{1}{4}&=\P(Y\leq y)\\
+                        &=\P\left(Z\leq \frac{y-\mu}{\sigma}\right)\\
+                        &=\Phi\left(\frac{y-\mu}{\sigma}\right)\\
+                        Z_{0.25}&=\frac{y-\mu}{\sigma}\\
+                        y&=\sigma\cdot Z_{0.25}+\mu
+                    \end{align*}
+            \end{enumerate}
+        \item
+            \begin{enumerate}[(i)]
+                \item
+                    \begin{tikzpicture}
+                        \begin{axis} [
+                                xlabel=x,
+                                ylabel=$F^X(x)$,
+                            ]
+                 			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"04/4_1X.csv"};
+                 			\addplot [black, only marks] table [x=x, y=y, col sep=comma] {"04/4_1Xm.csv"};
+                        \end{axis}
+                    \end{tikzpicture}\\
+                    \begin{tikzpicture}
+                        \begin{axis} [
+                                xlabel=x,
+                                ylabel=$F^Y(x)$,
+                            ]
+                 			\addplot [black, thick] table [x=x, y=y, col sep=comma] {"04/4_1Y.csv"};
+                        \end{axis}
+                    \end{tikzpicture}
+            \end{enumerate}
+    \end{enumerate}
 \end{document}
