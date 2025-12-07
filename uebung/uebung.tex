@@ -4,6 +4,7 @@
 \usepackage{amsmath, amsfonts}
 \usepackage{enumerate}
 \input{title.tex}
+\usepgfplotslibrary{statistics}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
@@ -1253,5 +1254,181 @@
                     &=\frac{2}{3\cdot 2\cdot 2}\int_0^{2}2-tdt\\
                     &=\frac{2}{6}
                 \end{align*}
+    \end{enumerate}
+    \newpage
+    \section{}
+    \subsection{}
+    \begin{enumerate}[a)]
+        \item
+            \begin{align*}
+                \overline{x}
+                &=\frac{1}{11}
+                (16+10+6.5+7+3+6+7+5+5.5+4+7)\\
+                &=7\\
+                \overline{x}_{\text{geom}}
+                &=\sqrt[11]{16\cdot10\cdot6.5
+                \cdot7\cdot3\cdot6\cdot7\cdot5
+                \cdot5.5\cdot4\cdot7}\\
+                &=\sqrt[11]{706305600}\approx 6.37\\
+                \overline{x}_{\text{harm}}
+                &=\frac{1}{
+                    \frac{1}{11}\cdot
+                    \left(
+                        \frac{1}{16}+
+                        \frac{1}{10}+
+                        \frac{1}{6.5}+
+                        \frac{1}{7}+
+                        \frac{1}{3}+
+                        \frac{1}{6}+
+                        \frac{1}{7}+
+                        \frac{1}{5}+
+                        \frac{1}{5.5}+
+                        \frac{1}{4}+
+                        \frac{1}{7}
+                    \right)
+                }\\
+                &=\frac{1}{
+                    \frac{1}{11}\cdot
+                    \frac{150289}{80080}
+                }\\
+                &=\frac{880880}{150289}\\
+                \tilde{s}^2
+                &=\frac{1}{11}
+                (
+                    (16-7)^2+
+                    (10-7)^2+
+                    (6.5-7)^2+
+                    (7-7)^2+
+                    (3-7)^2\\&+
+                    (6-7)^2+
+                    (7-7)^2+
+                    (5-7)^2+
+                    (5.5-7)^2+
+                    (4-7)^2+
+                    (7-7)^2
+                )\\
+                &=\frac{1}{11}\cdot\frac{4362946}{20449}\\
+                &=\frac{4362946}{224939}\\
+                s^2
+                &=\frac{1}{10}\cdot\frac{4362946}{20449}\\
+                &=\frac{2181473}{102245}\\
+                x_{\text{med}}&=5\\
+                x_{0.25}&=3\\
+                x_{0.75}&=7\\
+                d_Q&=7-3=4\\
+            \end{align*}
+            \begin{tikzpicture}
+                \begin{axis} [
+                        xlabel=x,
+                        ylabel=$F$,
+                    ]
+                    \addplot[color=black] coordinates {
+                    (0,0)
+                    (0.153,0)
+
+                    (0.153,0.0023547040565128972)
+                    (0.182,0.0023547040565128972)
+
+                    (0.182,0.005137536123300867)
+                    (3,0.005137536123300867)
+
+                    (3,0.05105426522530237)
+                    (4,0.05105426522530237)
+
+                    (4,0.1122765706946377)
+                    (5,0.1122765706946377)
+
+                    (5,0.18880445253130687)
+                    (6,0.18880445253130687)
+
+                    (6,0.28063791073530986)
+                    (7,0.28063791073530986)
+
+                    (7,0.6020550144493203)
+                    (10,0.6020550144493203)
+
+                    (10,0.7551107781226587)
+                    (16,0.7551107781226587)
+
+                    (16,1.0)
+                    (17,1.0)
+                    };
+                    \addplot [only marks, mark size=2pt, color=black]
+                    coordinates {
+                        (0.153,0.0023547040565128972)
+                        (0.182,0.005137536123300867)
+                        (3,0.05105426522530237)
+                        (4,0.1122765706946377)
+                        (5,0.18880445253130687)
+                        (6,0.28063791073530986)
+                        (7,0.3877769453066467)
+                        (7,0.4949159798779835)
+                        (7,0.6020550144493203)
+                        (10,0.7551107781226587)
+                        (16,1.0)
+                    };
+                \end{axis}
+            \end{tikzpicture}
+            \begin{tikzpicture}
+            \begin{axis}
+                \addplot+ [
+                    boxplot prepared={
+                        lower whisker=0.153,
+                        lower quartile=3,
+                        median=5,
+                        upper quartile=7,
+                        upper whisker=16,
+                    },
+                ] table [row sep=\\,y index=0] {
+                    data\\ 0.153\\ 0.182\\ 3\\ 4\\ 5\\ 6\\
+                    7\\ 10\\ 16\\
+                };
+            \end{axis}
+            \end{tikzpicture}
+        \item
+            Der Graph der Funktion verschiebt sich
+            nach ``rechts''.
+            Es kann auch dazu kommen, dass sich der Graph
+            entlang der $y$-Achse ändert,
+            ohne die Werte der Urliste zu kennen ist eine
+            Aussage aber nicht möglich.
+            Nehmen wir beispielsweise an, dass
+            durch aufrunden jedes Element mit einem
+            Festen wert skaliert wird, beispeilsweise
+            $\hat{x}_i=1.1\cdot x_i$
+            \begin{equation*}
+            \hat{F}(\hat{x}_i)=
+            \frac{
+                \sum_{j\leq i}\hat{x}_j
+            }{
+                \sum_{j}\hat{x}_j
+            }
+            =
+            \frac{
+                \sum_{j\leq i}1.1\cdot x_j
+            }{
+                \sum_{j}1.1\cdot x_j
+            }
+            =
+            \frac{
+                \sum_{j\leq i}\cdot x_j
+            }{
+                \sum_{j}\cdot x_j
+            }
+            =F(x_i).
+            \end{equation*}
+            In diesem Beispiel wäre die Verteilungsfunktion
+            $\hat{F}$ um 10\% in $x$-richtung gestreckt,
+            aber die Höhe der Sprünge zwischen den
+            $\hat{x}_i$ bliebe gleich.
+
+            Gehen wir davon aus, dass die $x_i$ nicht um
+            einen Konstanten Faktor skaliert werden,
+            so werden kleine $x_i$ proportional
+            mehr skaliert als Große. Dies
+            hätte zur folge, dass die Sprünge in der
+            Verteilungsfunktion $\hat{F}$ im vergleich zu
+            $F$ für kleine $\hat{x}_i$ größer sind und
+            für große $\hat{x}_i$ kleiner.
     \end{enumerate}
 \end{document}
